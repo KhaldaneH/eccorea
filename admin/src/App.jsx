@@ -9,7 +9,7 @@ import Login from './components/Login';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
-export const backendUrl = import.meta.env.VITE_BACKEND_URL || 'http://localhost:5000'; // Default value
+export const backendUrl = import.meta.env.VITE_BACKEND_URL || 'http://localhost:5000'; // Default for local testing
 export const currency = '$';
 
 const App = () => {
@@ -41,6 +41,7 @@ const App = () => {
                   <Route path="/add" element={<Add token={token} />} />
                   <Route path="/list" element={<List token={token} />} />
                   <Route path="/orders" element={<Orders token={token} />} />
+                  {/* Catch-all route: Redirect to /list if the path is unknown */}
                   <Route path="*" element={<Navigate to="/list" />} />
                 </Routes>
               </div>
