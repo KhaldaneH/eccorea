@@ -66,7 +66,7 @@ const Orders = ({ token }) => {
                   <p className='py-0.5' key={index}> {item.name} x {item.quantity} {index < order.items.length - 1 ? ',' : ''} </p>
                 ))}
               </div>
-              <p className='mt-3 mb-2 font-medium'>{order.address.firstName + " " + order.address.lastName}</p>
+              <p className='mt-3 mb-2 font-medium'>{order.address.firstName}</p>
               <div>
                 <p>{order.address.street + ","}</p>
                 <p>{order.address.city + ","}</p>
