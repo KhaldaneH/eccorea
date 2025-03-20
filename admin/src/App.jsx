@@ -13,13 +13,20 @@ export const backendUrl = import.meta.env.VITE_BACKEND_URL
 export const currency = '$'
 
 const App = () => {
-  const [token, setToken] = useState(localStorage.getItem('token') ? localStorage.getItem('token') : '');
+  const [token, setToken] = useState(localStorage.getItem('token') || '');
   const navigate = useNavigate(); // Hook for navigation
 
   useEffect(() => {
-    localStorage.setItem('token', token);
+    if (token) {
+      localStorage.setItem('token', token);
+    } else {
+      localStorage.removeItem('token');
+    }
+  }, [token]);
+
+  useEffect(() => {
     if (!token) {
-      navigate('/'); // Redirect to login page if token is not present
+      navigate('/'); // Redirect to login page if no token exists
     }
   }, [token, navigate]);
 
