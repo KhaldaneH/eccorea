@@ -1,2 +1,0 @@
-# eccorea
-just an app
